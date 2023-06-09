@@ -8,5 +8,7 @@
   <foreignModel>concl.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Concl" basePackage="nl.tue.glt.metamodel" disposableProviderFactory="true"
-      ecorePackage="concl.ecore#/"/>
+      ecorePackage="concl.ecore#/">
+    <genClasses ecoreClass="concl.ecore#//NewEClass1"/>
+  </genPackages>
 </genmodel:GenModel>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_CAU6gAbiEe6zuJBu9GEgNA" selectedViews="_CZPw0AbiEe6zuJBu9GEgNA" version="15.0.0.202201261500">
     <semanticResources>concl.ecore</semanticResources>
+    <semanticResources>concl.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_CZPw0AbiEe6zuJBu9GEgNA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CeJe8AbiEe6zuJBu9GEgNA" name="concl" repPath="#_Cc46sAbiEe6zuJBu9GEgNA" changeId="1e721f5b-4481-4b3f-8907-30fc12a9aeb0">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CeJe8AbiEe6zuJBu9GEgNA" name="concl" repPath="#_Cc46sAbiEe6zuJBu9GEgNA" changeId="4ffe19ae-42a3-4908-8dec-c6f870e9fc00">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="concl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -13,12 +14,29 @@
   <diagram:DSemanticDiagram uid="_Cc46sAbiEe6zuJBu9GEgNA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Ce2CgAbiEe6zuJBu9GEgNA" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_Ce2pkAbiEe6zuJBu9GEgNA" type="Sirius" element="_Cc46sAbiEe6zuJBu9GEgNA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_ZlDeMAbkEe6zuJBu9GEgNA" type="2003" element="_ZkxxYAbkEe6zuJBu9GEgNA">
+          <children xmi:type="notation:Node" xmi:id="_ZlFTYAbkEe6zuJBu9GEgNA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_ZlF6cAbkEe6zuJBu9GEgNA" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_ZlF6cQbkEe6zuJBu9GEgNA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_ZlF6cgbkEe6zuJBu9GEgNA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ZlDeMQbkEe6zuJBu9GEgNA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZlDeMgbkEe6zuJBu9GEgNA" x="617" y="184" width="120" height="100"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Ce2pkQbiEe6zuJBu9GEgNA"/>
       </data>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_ChaOUAbiEe6zuJBu9GEgNA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Cha1YAbiEe6zuJBu9GEgNA"/>
     </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_ZkxxYAbkEe6zuJBu9GEgNA" name="NewEClass1" tooltipText="" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="concl.ecore#//NewEClass1"/>
+      <semanticElements xmi:type="ecore:EClass" href="concl.ecore#//NewEClass1"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Zk2C0AbkEe6zuJBu9GEgNA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_CdsL8AbiEe6zuJBu9GEgNA"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
