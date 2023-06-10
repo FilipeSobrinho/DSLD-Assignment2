@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/nl.tue.glt.metamodel.concl/src-gen" creationIcons="false"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/nl.tue.glt.metamodel.concl/src-gen" creationIcons="false"
     editDirectory="/nl.tue.glt.metamodel.concl.edit/src-gen" editorDirectory="/nl.tue.glt.metamodel.concl.editor/src-gen"
     modelPluginID="nl.tue.glt.metamodel.concl" modelName="Concl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
@@ -9,6 +10,53 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Concl" basePackage="nl.tue.glt.metamodel" disposableProviderFactory="true"
       ecorePackage="concl.ecore#/">
-    <genClasses ecoreClass="concl.ecore#//NewEClass1"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//Resolution%20">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/HD"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/FULL_HD"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/4K"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/5K"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//DisplayType%20">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType%20/LED"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType%20/OLED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//GameName%20">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/NO_GAME"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/HEDWIG_THE_HEDGEHOG"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/LINKS_RESOLUTION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//ControllerColor">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/BLACK"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/WHITE"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/RED"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/BLUE"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/GOLD"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/SILVER"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/GREEN"/>
+    </genEnums>
+    <genClasses ecoreClass="concl.ecore#//ConsolePack">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//ConsolePack/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference concl.ecore#//ConsolePack/consolecomponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference concl.ecore#//ConsolePack/controllercomponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference concl.ecore#//ConsolePack/gamecomponent"/>
+    </genClasses>
+    <genClasses ecoreClass="concl.ecore#//Console">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference concl.ecore#//Console/displaycomponent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//Console/storage"/>
+    </genClasses>
+    <genClasses ecoreClass="concl.ecore#//Controller">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//Controller/color"/>
+    </genClasses>
+    <genClasses ecoreClass="concl.ecore#//Game">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//Game/gameName"/>
+    </genClasses>
+    <genClasses ecoreClass="concl.ecore#//DisplayComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//DisplayComponent/diagonalSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//DisplayComponent/displayType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concl.ecore#//DisplayComponent/resolution"/>
+    </genClasses>
+    <genClasses ecoreClass="concl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference concl.ecore#//Model/consolepack"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="concl" nsURI="http://www.example.org/concl" nsPrefix="concl">
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass1"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConsolePack">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consolecomponent" lowerBound="1"
+        upperBound="-1" eType="#//Console" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controllercomponent" lowerBound="1"
+        upperBound="-1" eType="#//Controller" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gamecomponent" lowerBound="1"
+        upperBound="-1" eType="#//Game" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Console">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="displaycomponent" lowerBound="1"
+        eType="#//DisplayComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ControllerColor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gameName" eType="#//GameName%20"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagonalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayType" eType="#//DisplayType%20"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="#//Resolution%20"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Resolution ">
+    <eLiterals name="HD"/>
+    <eLiterals name="FULL_HD" value="1"/>
+    <eLiterals name="4K" value="2"/>
+    <eLiterals name="5K" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DisplayType ">
+    <eLiterals name="LED"/>
+    <eLiterals name="OLED" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GameName ">
+    <eLiterals name="NO_GAME"/>
+    <eLiterals name="HEDWIG_THE_HEDGEHOG" value="1"/>
+    <eLiterals name="LINKS_RESOLUTION" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ControllerColor">
+    <eLiterals name="BLACK"/>
+    <eLiterals name="WHITE" value="1"/>
+    <eLiterals name="RED" value="2"/>
+    <eLiterals name="BLUE" value="3"/>
+    <eLiterals name="GOLD" value="4"/>
+    <eLiterals name="SILVER" value="5"/>
+    <eLiterals name="GREEN" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consolepack" lowerBound="1"
+        upperBound="-1" eType="#//ConsolePack" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

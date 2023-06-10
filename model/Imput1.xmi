@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concl:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:concl="http://www.example.org/concl"
+    xsi:schemaLocation="http://www.example.org/concl concl.ecore">
+  <consolepack>
+    <consolecomponent
+        storage="1024">
+      <displaycomponent
+          diagonalSize="30.0"
+          resolution="FULL_HD"/>
+    </consolecomponent>
+    <controllercomponent/>
+    <gamecomponent
+        gameName="HEDWIG_THE_HEDGEHOG"/>
+  </consolepack>
+</concl:Model>
