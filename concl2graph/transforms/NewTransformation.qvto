@@ -1,0 +1,36 @@
+modeltype ConCL uses 'http://www.example.org/concl';
+modeltype Graph uses 'http://dsldesign.tue.nl/graph';
+
+
+transformation ConCL2Graph(in concl : ConCL, out graph : Graph);
+
+main() {
+	
+}
+
+mapping ConCL::ConsolePack::pack2graph() : Graph::Graph {
+}
+
+mapping ConCL::Console::console2node() : Graph::Node {
+}
+
+mapping ConCL::Controller::controller2node() : Graph::Node {
+}
+
+mapping ConCL::Game::game2node() : Graph::Node {
+}
+
+mapping ConCL::DisplayComponent::display2node() : Graph::Node {
+}
+
+mapping ConCL::Console::console2edge() : Graph::Edge {
+}
+
+mapping ConCL::Controller::controller2edge() : Graph::Edge {
+}
+
+mapping ConCL::Game::game2edge() : Graph::Edge {
+}
+
+mapping ConCL::DisplayComponent::display2edge() : Graph::Edge {
+}
