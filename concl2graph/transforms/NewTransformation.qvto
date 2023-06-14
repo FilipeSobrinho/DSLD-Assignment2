@@ -5,32 +5,35 @@ modeltype Graph uses 'http://dsldesign.tue.nl/graph';
 transformation ConCL2Graph(in concl : ConCL, out graph : Graph);
 
 main() {
-	
+    concl.rootObjects()[ConCL::Model].consolepack->collect(cp | cp.map m2cp());
 }
 
-mapping ConCL::ConsolePack::pack2graph() : Graph::Graph {
+mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
+    name := self.name;
+    nodes := self.consolecomponent->map console2node();
+    nodes := self.controllercomponent->map controller2node();
+    nodes := self.gamecomponent->map game2node();
 }
 
 mapping ConCL::Console::console2node() : Graph::Node {
+    label := 'console' + self.storage.toString(); // 'storage' is a unique attribute of Console
+    shape := Graph::Shape::BOX;
+    //outEdges := self.displaycomponent->map display2edge();
 }
 
+
 mapping ConCL::Controller::controller2node() : Graph::Node {
+    label := 'controller' + self.color.toString(); // 'color' is a unique attribute of Controller
+    shape := Graph::Shape::BOX;
+    //outEdges := self.color->map color2edge();
 }
 
 mapping ConCL::Game::game2node() : Graph::Node {
+    label := 'game' + self.gameName.toString(); // 'gameName' is a unique attribute of Game
+    shape := Graph::Shape::BOX;
 }
 
-mapping ConCL::DisplayComponent::display2node() : Graph::Node {
-}
 
-mapping ConCL::Console::console2edge() : Graph::Edge {
-}
 
-mapping ConCL::Controller::controller2edge() : Graph::Edge {
-}
 
-mapping ConCL::Game::game2edge() : Graph::Edge {
-}
 
-mapping ConCL::DisplayComponent::display2edge() : Graph::Edge {
-}

@@ -10,20 +10,20 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Concl" basePackage="nl.tue.glt.metamodel" disposableProviderFactory="true"
       ecorePackage="concl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//Resolution%20">
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/HD"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/FULL_HD"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/4K"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution%20/5K"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//Resolution">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution/HD"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution/FULL_HD"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution/FourK"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//Resolution/FiveK"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//DisplayType%20">
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType%20/LED"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType%20/OLED"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//DisplayType">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType/LED"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//DisplayType/OLED"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//GameName%20">
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/NO_GAME"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/HEDWIG_THE_HEDGEHOG"/>
-      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName%20/LINKS_RESOLUTION"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//GameName">
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName/NO_GAME"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName/HEDWIG_THE_HEDGEHOG"/>
+      <genEnumLiterals ecoreEnumLiteral="concl.ecore#//GameName/LINKS_RESOLUTION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="concl.ecore#//ControllerColor">
       <genEnumLiterals ecoreEnumLiteral="concl.ecore#//ControllerColor/BLACK"/>

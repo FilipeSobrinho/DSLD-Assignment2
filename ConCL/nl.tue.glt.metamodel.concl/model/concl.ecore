@@ -19,24 +19,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ControllerColor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gameName" eType="#//GameName%20"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gameName" eType="#//GameName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagonalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayType" eType="#//DisplayType%20"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="#//Resolution%20"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayType" eType="#//DisplayType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="#//Resolution"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Resolution ">
+  <eClassifiers xsi:type="ecore:EEnum" name="Resolution">
     <eLiterals name="HD"/>
     <eLiterals name="FULL_HD" value="1"/>
-    <eLiterals name="4K" value="2"/>
-    <eLiterals name="5K" value="3"/>
+    <eLiterals name="FourK" value="2" literal="FourK"/>
+    <eLiterals name="FiveK" value="3" literal="FiveK"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DisplayType ">
+  <eClassifiers xsi:type="ecore:EEnum" name="DisplayType">
     <eLiterals name="LED"/>
     <eLiterals name="OLED" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="GameName ">
+  <eClassifiers xsi:type="ecore:EEnum" name="GameName">
     <eLiterals name="NO_GAME"/>
     <eLiterals name="HEDWIG_THE_HEDGEHOG" value="1"/>
     <eLiterals name="LINKS_RESOLUTION" value="2"/>
