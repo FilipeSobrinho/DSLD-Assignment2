@@ -14,8 +14,8 @@ mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
     nodes += self.controllercomponent->map controller2node();
     nodes += self.gamecomponent->map game2node();
     
-    var controllerColourNode := object Graph::Node { label := 'Controller Colour'; shape := Graph::Shape::BOX }; // Create 'Controller Colour' node
-    var displayNode := object Graph::Node { label := 'Display'; shape := Graph::Shape::BOX }; // Create 'Display' node
+    var controllerColourNode := object Graph::Node { label := 'Controller Colour'; shape := Graph::Shape::BOX }; 
+    var displayNode := object Graph::Node { label := 'Display'; shape := Graph::Shape::BOX };
     
     nodes += controllerColourNode;
     nodes += displayNode;
@@ -24,36 +24,36 @@ mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
 mapping ConCL::Console::console2node() : Graph::Node {
     label := 'console' + self.storage.toString();
     shape := Graph::Shape::BOX;
-    outEdges := self.displaycomponent->map display2edge(); // create edges from Console to DisplayComponent
+    outEdges := self.displaycomponent->map display2edge(); 
 }
 
 mapping ConCL::Controller::controller2node() : Graph::Node {
-    label := 'controller' + self.color.toString(); 
+    label := self.color.toString(); 
     shape := Graph::Shape::BOX;
-    outEdges := self.color->map color2edge(); // create edges from Controller to Color
+    outEdges := self.color->map color2edge(); 
 }
 
 mapping ConCL::Game::game2node() : Graph::Node {
-    label := 'game' + self.gameName.toString(); 
+    label := self.gameName.toString(); 
     shape := Graph::Shape::BOX;
 }
 
 mapping ConCL::DisplayComponent::display2edge() : Graph::Edge {
     style := Graph::Style::DASHED; 
-    target := self.map display2node(); // Transform the DisplayComponent to a Node
+    target := self.map display2node(); 
 }
 
 mapping ConCL::DisplayComponent::display2node() : Graph::Node {
-    label := 'display' + self.diagonalSize.toString() + self.displayType.toString() + self.resolution.toString(); // 'diagonalSize', 'displayType', and 'resolution' are unique attributes of DisplayComponent
+    label := 'display' + self.diagonalSize.toString(); 
     shape := Graph::Shape::BOX; 
 }
 
 mapping ConCL::ControllerColor::color2edge() : Graph::Edge {
     style := Graph::Style::SOLID; 
-    target := self.map color2node(); // Transform the ControllerColor to a Node
+    target := self.map color2node(); 
 }
 
 mapping ConCL::ControllerColor::color2node() : Graph::Node {
-    label := 'color' + self.toString(); 
+    label := self.toString(); 
     shape := Graph::Shape::BOX;
 }
