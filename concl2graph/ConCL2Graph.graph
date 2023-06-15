@@ -8,6 +8,8 @@
       <outEdges target="/2"/>
     </nodes>
     <nodes label="gameNO_GAME"/>
+    <nodes label="Controller Colour"/>
+    <nodes label="Display"/>
   </graph:Graph>
   <graph:Node label="display30.0LEDFULL_HD"/>
   <graph:Node label="colorBLACK"/>

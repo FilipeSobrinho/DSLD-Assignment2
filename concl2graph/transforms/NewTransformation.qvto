@@ -13,6 +13,12 @@ mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
     nodes := self.consolecomponent->map console2node();
     nodes += self.controllercomponent->map controller2node();
     nodes += self.gamecomponent->map game2node();
+    
+    var controllerColourNode := object Graph::Node { label := 'Controller Colour'; shape := Graph::Shape::BOX }; // Create 'Controller Colour' node
+    var displayNode := object Graph::Node { label := 'Display'; shape := Graph::Shape::BOX }; // Create 'Display' node
+    
+    nodes += controllerColourNode;
+    nodes += displayNode;
 }
 
 mapping ConCL::Console::console2node() : Graph::Node {
