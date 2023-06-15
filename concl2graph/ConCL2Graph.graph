@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graph="http://dsldesign.tue.nl/graph" xsi:schemaLocation="http://dsldesign.tue.nl/graph ../nl.tue.dsldesign.graph.metamodel/model/graph.ecore">
   <graph:Graph>
-    <nodes label="gameHEDWIG_THE_HEDGEHOG"/>
+    <nodes label="console1024">
+      <outEdges style="DASHED" target="/1"/>
+    </nodes>
+    <nodes label="controllerBLACK">
+      <outEdges target="/2"/>
+    </nodes>
+    <nodes label="gameNO_GAME"/>
   </graph:Graph>
-  <graph:Node label="console1024"/>
-  <graph:Node label="controllerBLACK"/>
+  <graph:Node label="display30.0LEDFULL_HD"/>
+  <graph:Node label="colorBLACK"/>
 </xmi:XMI>

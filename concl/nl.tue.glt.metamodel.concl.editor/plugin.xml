@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated concl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="nl.tue.glt.metamodel.concl.presentation.ConclModelWizardID"
+            name="%_UI_ConclModelWizard_label"
+            class="nl.tue.glt.metamodel.concl.presentation.ConclModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConclModelFile.gif">
+         <description>%_UI_ConclModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated concl -->
+      <editor
+            id="nl.tue.glt.metamodel.concl.presentation.ConclEditorID"
+            name="%_UI_ConclEditor_label"
+            icon="icons/full/obj16/ConclModelFile.gif"
+            extensions="concl"
+            class="nl.tue.glt.metamodel.concl.presentation.ConclEditor"
+            contributorClass="nl.tue.glt.metamodel.concl.presentation.ConclActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

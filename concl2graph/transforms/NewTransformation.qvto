@@ -11,29 +11,43 @@ main() {
 mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
     name := self.name;
     nodes := self.consolecomponent->map console2node();
-    nodes := self.controllercomponent->map controller2node();
-    nodes := self.gamecomponent->map game2node();
+    nodes += self.controllercomponent->map controller2node();
+    nodes += self.gamecomponent->map game2node();
 }
 
 mapping ConCL::Console::console2node() : Graph::Node {
-    label := 'console' + self.storage.toString(); // 'storage' is a unique attribute of Console
+    label := 'console' + self.storage.toString();
     shape := Graph::Shape::BOX;
-    //outEdges := self.displaycomponent->map display2edge();
+    outEdges := self.displaycomponent->map display2edge(); // create edges from Console to DisplayComponent
 }
 
-
 mapping ConCL::Controller::controller2node() : Graph::Node {
-    label := 'controller' + self.color.toString(); // 'color' is a unique attribute of Controller
+    label := 'controller' + self.color.toString(); 
     shape := Graph::Shape::BOX;
-    //outEdges := self.color->map color2edge();
+    outEdges := self.color->map color2edge(); // create edges from Controller to Color
 }
 
 mapping ConCL::Game::game2node() : Graph::Node {
-    label := 'game' + self.gameName.toString(); // 'gameName' is a unique attribute of Game
+    label := 'game' + self.gameName.toString(); 
     shape := Graph::Shape::BOX;
 }
 
+mapping ConCL::DisplayComponent::display2edge() : Graph::Edge {
+    style := Graph::Style::DASHED; 
+    target := self.map display2node(); // Transform the DisplayComponent to a Node
+}
 
+mapping ConCL::DisplayComponent::display2node() : Graph::Node {
+    label := 'display' + self.diagonalSize.toString() + self.displayType.toString() + self.resolution.toString(); // 'diagonalSize', 'displayType', and 'resolution' are unique attributes of DisplayComponent
+    shape := Graph::Shape::BOX; 
+}
 
+mapping ConCL::ControllerColor::color2edge() : Graph::Edge {
+    style := Graph::Style::SOLID; 
+    target := self.map color2node(); // Transform the ControllerColor to a Node
+}
 
-
+mapping ConCL::ControllerColor::color2node() : Graph::Node {
+    label := 'color' + self.toString(); 
+    shape := Graph::Shape::BOX;
+}

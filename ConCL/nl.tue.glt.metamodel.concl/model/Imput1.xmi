@@ -14,6 +14,6 @@
     </consolecomponent>
     <controllercomponent/>
     <gamecomponent
-        gameName="HEDWIG_THE_HEDGEHOG"/>
+        gameName="NO_GAME"/>
   </consolepack>
 </concl:Model>
