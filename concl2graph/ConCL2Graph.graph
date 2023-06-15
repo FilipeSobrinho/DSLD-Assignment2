@@ -4,13 +4,25 @@
     <nodes label="console1024">
       <outEdges style="DASHED" target="/1"/>
     </nodes>
-    <nodes label="BLACK">
+    <nodes label="controllerBLACK">
       <outEdges target="/2"/>
     </nodes>
-    <nodes label="NO_GAME"/>
-    <nodes label="Controller Colour"/>
-    <nodes label="Display"/>
+    <nodes label="controllerBLUE">
+      <outEdges target="/3"/>
+    </nodes>
+    <nodes label="gameHEDWIG_THE_HEDGEHOG"/>
+    <nodes label="Controller Colour">
+      <outEdges target="/0/@nodes.7"/>
+      <outEdges target="/0/@nodes.6"/>
+    </nodes>
+    <nodes label="Display">
+      <outEdges target="/0/@nodes.8"/>
+    </nodes>
+    <nodes label="BLACK"/>
+    <nodes label="BLUE"/>
+    <nodes label="display30.0"/>
   </graph:Graph>
   <graph:Node label="display30.0"/>
   <graph:Node label="BLACK"/>
+  <graph:Node label="BLUE"/>
 </xmi:XMI>

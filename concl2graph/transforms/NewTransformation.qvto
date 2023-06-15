@@ -19,7 +19,24 @@ mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
     
     nodes += controllerColourNode;
     nodes += displayNode;
+    
+    // Collect all unique values of controller color and display diagonal size
+    var uniqueControllerColors := self.controllercomponent->collect(c | c.color.toString())->asSet();
+    var uniqueDisplaySizes := self.consolecomponent.displaycomponent->collect(d | d.diagonalSize.toString())->asSet();
+    
+    // Create a node for each unique value of controller color and display diagonal size
+    nodes += uniqueControllerColors->collect(color | object Graph::Node { label := color; shape := Graph::Shape::BOX });
+    nodes += uniqueDisplaySizes->collect(size | object Graph::Node { label := 'display' + size; shape := Graph::Shape::BOX });
+    
+    // Create edges from the 'Controller Colour' and 'Display' nodes to the nodes created for each unique value of controller color and display diagonal size
+    controllerColourNode.outEdges += uniqueControllerColors->collect(color | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = color) });
+    displayNode.outEdges += uniqueDisplaySizes->collect(size | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = 'display' + size) });
+    
+    // Create an edge from the 'Controller Colour' node to each color node
+    controllerColourNode.outEdges += uniqueControllerColors->collect(color | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = color) });
 }
+
+
 
 mapping ConCL::Console::console2node() : Graph::Node {
     label := 'console' + self.storage.toString();
@@ -28,13 +45,13 @@ mapping ConCL::Console::console2node() : Graph::Node {
 }
 
 mapping ConCL::Controller::controller2node() : Graph::Node {
-    label := self.color.toString(); 
+    label := 'controller' + self.color.toString(); 
     shape := Graph::Shape::BOX;
     outEdges := self.color->map color2edge(); 
 }
 
 mapping ConCL::Game::game2node() : Graph::Node {
-    label := self.gameName.toString(); 
+    label := 'game' + self.gameName.toString(); 
     shape := Graph::Shape::BOX;
 }
 
@@ -54,6 +71,6 @@ mapping ConCL::ControllerColor::color2edge() : Graph::Edge {
 }
 
 mapping ConCL::ControllerColor::color2node() : Graph::Node {
-    label := self.toString(); 
+    label := self.toString();
     shape := Graph::Shape::BOX;
 }

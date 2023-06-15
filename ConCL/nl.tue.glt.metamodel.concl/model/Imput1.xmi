@@ -10,10 +10,11 @@
         storage="1024">
       <displaycomponent
           diagonalSize="30.0"
+          displayType="LED"
           resolution="FULL_HD"/>
     </consolecomponent>
-    <controllercomponent/>
-    <gamecomponent
-        gameName="NO_GAME"/>
+    <controllercomponent color="BLACK"/>
+    <controllercomponent color="BLUE"/>
+    <gamecomponent gameName="HEDWIG_THE_HEDGEHOG"/>
   </consolepack>
 </concl:Model>
