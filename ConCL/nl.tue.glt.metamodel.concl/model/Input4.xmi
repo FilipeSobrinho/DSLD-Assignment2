@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concl:Model
+	xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:concl="http://www.example.org/concl"
+    xsi:schemaLocation="http://www.example.org/concl concl.ecore">
+	<consolepack name="my_console_pack">
+		<consolecomponent storage="512">
+      		<displaycomponent diagonalSize="30.0" displayType="LED" resolution="FULL_HD"/>
+    	</consolecomponent>
+    	<controllercomponent color="GOLD"/>
+    	<gamecomponent gameName="NO_GAME"/>
+  	</consolepack>
+</concl:Model>

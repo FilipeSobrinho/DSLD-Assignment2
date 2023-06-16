@@ -3,9 +3,14 @@ modeltype Graph uses 'http://dsldesign.tue.nl/graph';
 
 transformation ConCL2Graph(in concl : ConCL, out graph : Graph);
 
+// The main function of the transformation
+    // For each ConsolePack in the ConCL model, applies the consolepack2graph mapping
+    // The result of the mapping (a Graph::Graph object) is collected into a sequence
+   
 main() {
     concl.rootObjects()[ConCL::Model].consolepack->collect(cp | cp.map consolepack2graph());
 }
+
 
 mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
     name := self.name;
@@ -65,7 +70,7 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
         };
         colorNode.outEdges += colorToControllerEdge;
         
-        // Increment the index
+        // The index is incremented to move to the next controller component
         index := index + 1;
     };
     
@@ -114,10 +119,7 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
 		};
 		eachDisplayNode.outEdges += resolutionEdge;
 		
-		//========================================================================
-		        
-        
-        
+
         // Create a node for the display diagonal size
 		var diagonalSizeNode := object Graph::Node {
 		    label := console.displaycomponent.diagonalSize.toString() + ' Inch';
@@ -145,7 +147,6 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
         consoleIndex := consoleIndex + 1;
     }
 }
-
 
 
 mapping ConCL::ConsolePack::consolepackname2node() : Graph::Node {
