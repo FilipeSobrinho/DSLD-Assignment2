@@ -9,7 +9,7 @@ main() {
 
 mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
     name := self.name;
-    nodes := self.consolecomponent->map console2display();
+
     nodes += self.map consolepackname2node();
     
     // Create a node for the Controller Colour
@@ -19,8 +19,9 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
     };
     nodes += controllerColourNode;
     
-    // Declare and initialize a variable for the controller index
+    // Declare and initialize a variable for indexing
     var index : Integer := 1;
+    
     // Use a while loop to iterate over the controller components
     while (index <= self.controllercomponent->size()) {
         // Get the controller at the current index
@@ -59,16 +60,82 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
         
         // Increment the index
         index := index + 1;
+    };
+    
+	// Declare and initialize a variable for the console index
+    var consoleIndex : Integer := 1;
+    // Use a while loop to iterate over the console components
+    while (consoleIndex <= self.consolecomponent->size()) {
+        // Get the console at the current index
+        var console := self.consolecomponent->at(consoleIndex);
+        // Map the display component to a node and add it to the nodes
+        var displayNode := console.displaycomponent.map display2node(consoleIndex);
+        nodes += displayNode;
+        
+        // Create a node for the display type
+		var displayTypeNode := object Graph::Node {
+		    label := console.displaycomponent.displayType.toString();
+		    shape := Graph::Shape::OVAL;
+		};
+		nodes += displayTypeNode;
+		
+		// Create a node for the display resolution
+		var resolutionNode := object Graph::Node {
+		    label := console.displaycomponent.resolution.toString();
+		    shape := Graph::Shape::OVAL;
+		};
+		nodes += resolutionNode;
+		
+		// Create an edge from the Display node to the Display Type node
+		var displayTypeEdge := object Graph::Edge {
+		    style := Graph::Style::DASHED;
+		    target := displayTypeNode;
+		};
+		displayNode.outEdges += displayTypeEdge;
+		
+		// Create an edge from the Display node to the Resolution node
+		var resolutionEdge := object Graph::Edge {
+		    style := Graph::Style::DASHED;
+		    target := resolutionNode;
+		};
+		displayNode.outEdges += resolutionEdge;
+		        
+        // Create an edge from the ConsolePack node to the Display node
+		var displayEdge := object Graph::Edge {
+		    style := Graph::Style::SOLID;
+		    target := displayNode;
+		};
+		self.map consolepackname2node().outEdges += displayEdge;
+        
+        // Create a node for the display diagonal size
+		var diagonalSizeNode := object Graph::Node {
+		    label := console.displaycomponent.diagonalSize.toString() + ' Inch';
+		    shape := Graph::Shape::BOX;
+		};
+		nodes += diagonalSizeNode;
+
+		// Create an edge from the Display node to the Diagonal Size node
+		var diagonalSizeEdge := object Graph::Edge {
+		    style := Graph::Style::SOLID;
+		    target := diagonalSizeNode;
+		};
+        displayNode.outEdges += diagonalSizeEdge;
+        
+        // Increment the console index
+        consoleIndex := consoleIndex + 1;
     }
 }
+
+
 
 mapping ConCL::ConsolePack::consolepackname2node() : Graph::Node {
     label := self.name;
     shape := Graph::Shape::BOX;
 }
 
-mapping ConCL::Console::console2display() : Graph::Node {
-
+mapping ConCL::DisplayComponent::display2node(index: Integer) : Graph::Node {
+	label := 'display' + index.toString();
+    shape := Graph::Shape::BOX;
 }
 
 mapping ConCL::Controller::controller2node(index: Integer) : Graph::Node {

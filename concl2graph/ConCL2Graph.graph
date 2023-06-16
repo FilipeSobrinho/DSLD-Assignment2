@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graph="http://dsldesign.tue.nl/graph" xsi:schemaLocation="http://dsldesign.tue.nl/graph ../nl.tue.dsldesign.graph.metamodel/model/graph.ecore" name="my_console_pack">
-  <nodes/>
   <nodes label="my_console_pack">
-    <outEdges target="//@nodes.3"/>
-    <outEdges target="//@nodes.5"/>
-  </nodes>
-  <nodes label="Controller Colour">
+    <outEdges target="//@nodes.2"/>
     <outEdges target="//@nodes.4"/>
     <outEdges target="//@nodes.6"/>
   </nodes>
+  <nodes label="Controller Colour">
+    <outEdges target="//@nodes.3"/>
+    <outEdges target="//@nodes.5"/>
+  </nodes>
   <nodes label="controller1"/>
   <nodes label="BLACK">
-    <outEdges target="//@nodes.3"/>
+    <outEdges target="//@nodes.2"/>
   </nodes>
   <nodes label="controller2"/>
   <nodes label="BLUE">
-    <outEdges target="//@nodes.5"/>
+    <outEdges target="//@nodes.4"/>
   </nodes>
+  <nodes label="display1">
+    <outEdges style="DASHED" target="//@nodes.7"/>
+    <outEdges style="DASHED" target="//@nodes.8"/>
+    <outEdges target="//@nodes.9"/>
+  </nodes>
+  <nodes label="LED" shape="OVAL"/>
+  <nodes label="FULL_HD" shape="OVAL"/>
+  <nodes label="30.0 Inch"/>
 </graph:Graph>
