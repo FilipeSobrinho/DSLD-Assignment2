@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graph="http://dsldesign.tue.nl/graph" xsi:schemaLocation="http://dsldesign.tue.nl/graph ../nl.tue.dsldesign.graph.metamodel/model/graph.ecore">
-  <graph:Graph name="my_console_pack1">
-    <nodes label="my_console_pack1">
+  <graph:Graph name="my_console_pack2">
+    <nodes label="my_console_pack2">
       <outEdges target="/0/@nodes.3"/>
       <outEdges target="/0/@nodes.5"/>
       <outEdges target="/0/@nodes.7"/>
@@ -18,21 +18,21 @@
       <outEdges target="/0/@nodes.3"/>
     </nodes>
     <nodes label="controller2"/>
-    <nodes label="BLUE">
+    <nodes label="SILVER">
       <outEdges target="/0/@nodes.5"/>
     </nodes>
     <nodes label="display1">
       <outEdges style="DASHED" target="/0/@nodes.8"/>
       <outEdges style="DASHED" target="/0/@nodes.9"/>
     </nodes>
-    <nodes label="OLED" shape="OVAL"/>
+    <nodes label="LED" shape="OVAL"/>
     <nodes label="FULL_HD" shape="OVAL"/>
-    <nodes label="30.0 Inch">
+    <nodes label="40.0 Inch">
       <outEdges target="/0/@nodes.7"/>
     </nodes>
   </graph:Graph>
-  <graph:Graph name="my_console_pack2">
-    <nodes label="my_console_pack2">
+  <graph:Graph name="my_console_pack1">
+    <nodes label="my_console_pack1">
       <outEdges target="/1/@nodes.3"/>
       <outEdges target="/1/@nodes.5"/>
       <outEdges target="/1/@nodes.7"/>
@@ -49,16 +49,16 @@
       <outEdges target="/1/@nodes.3"/>
     </nodes>
     <nodes label="controller2"/>
-    <nodes label="SILVER">
+    <nodes label="BLUE">
       <outEdges target="/1/@nodes.5"/>
     </nodes>
     <nodes label="display1">
       <outEdges style="DASHED" target="/1/@nodes.8"/>
       <outEdges style="DASHED" target="/1/@nodes.9"/>
     </nodes>
-    <nodes label="LED" shape="OVAL"/>
+    <nodes label="OLED" shape="OVAL"/>
     <nodes label="FULL_HD" shape="OVAL"/>
-    <nodes label="40.0 Inch">
+    <nodes label="30.0 Inch">
       <outEdges target="/1/@nodes.7"/>
     </nodes>
   </graph:Graph>
