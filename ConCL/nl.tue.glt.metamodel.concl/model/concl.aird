@@ -4,6 +4,7 @@
     <semanticResources>concl.ecore</semanticResources>
     <semanticResources>concl.genmodel</semanticResources>
     <semanticResources>Imput1.xmi</semanticResources>
+    <semanticResources>Model.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_CZPw0AbiEe6zuJBu9GEgNA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CeJe8AbiEe6zuJBu9GEgNA" name="concl" repPath="#_Cc46sAbiEe6zuJBu9GEgNA" changeId="c618bbc8-1a2e-40cb-adfa-7299bf2dd406">

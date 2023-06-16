@@ -1,76 +1,77 @@
 modeltype ConCL uses 'http://www.example.org/concl';
 modeltype Graph uses 'http://dsldesign.tue.nl/graph';
 
-
 transformation ConCL2Graph(in concl : ConCL, out graph : Graph);
 
 main() {
-    concl.rootObjects()[ConCL::Model].consolepack->collect(cp | cp.map m2cp());
+    concl.rootObjects()[ConCL::Model].consolepack->collect(cp | cp.map consolepack2graph());
 }
 
-mapping ConCL::ConsolePack::m2cp() : Graph::Graph {
+mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
     name := self.name;
-    nodes := self.consolecomponent->map console2node();
-    nodes += self.controllercomponent->map controller2node();
-    nodes += self.gamecomponent->map game2node();
+    nodes := self.consolecomponent->map console2display();
+    nodes += self.map consolepackname2node();
     
-    var controllerColourNode := object Graph::Node { label := 'Controller Colour'; shape := Graph::Shape::BOX }; 
-    var displayNode := object Graph::Node { label := 'Display'; shape := Graph::Shape::BOX };
-    
+    // Create a node for the Controller Colour
+    var controllerColourNode := object Graph::Node {
+        label := 'Controller Colour';
+        shape := Graph::Shape::BOX;
+    };
     nodes += controllerColourNode;
-    nodes += displayNode;
     
-    // Collect all unique values of controller color and display diagonal size
-    var uniqueControllerColors := self.controllercomponent->collect(c | c.color.toString())->asSet();
-    var uniqueDisplaySizes := self.consolecomponent.displaycomponent->collect(d | d.diagonalSize.toString())->asSet();
-    
-    // Create a node for each unique value of controller color and display diagonal size
-    nodes += uniqueControllerColors->collect(color | object Graph::Node { label := color; shape := Graph::Shape::BOX });
-    nodes += uniqueDisplaySizes->collect(size | object Graph::Node { label := 'display' + size; shape := Graph::Shape::BOX });
-    
-    // Create edges from the 'Controller Colour' and 'Display' nodes to the nodes created for each unique value of controller color and display diagonal size
-    controllerColourNode.outEdges += uniqueControllerColors->collect(color | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = color) });
-    displayNode.outEdges += uniqueDisplaySizes->collect(size | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = 'display' + size) });
-    
-    // Create an edge from the 'Controller Colour' node to each color node
-    controllerColourNode.outEdges += uniqueControllerColors->collect(color | object Graph::Edge { style := Graph::Style::SOLID; target := nodes->selectOne(n | n.label = color) });
+    // Declare and initialize a variable for the controller index
+    var index : Integer := 1;
+    // Use a while loop to iterate over the controller components
+    while (index <= self.controllercomponent->size()) {
+        // Get the controller at the current index
+        var controller := self.controllercomponent->at(index);
+        // Map the controller to a node and add it to the nodes
+        var controllerNode := controller.map controller2node(index);
+        nodes += controllerNode;
+        
+        // Create an edge from the ConsolePack node to the Controller node
+        var controllerEdge := object Graph::Edge {
+            style := Graph::Style::SOLID;
+            target := controllerNode;
+        };
+        self.map consolepackname2node().outEdges += controllerEdge;
+        
+        // Create a node for the controller color
+        var colorNode := object Graph::Node {
+            label := controller.color.toString();
+            shape := Graph::Shape::BOX;
+        };
+        nodes += colorNode;
+        
+        // Create an edge from the Controller Colour node to the Color node
+        var colorEdge := object Graph::Edge {
+            style := Graph::Style::SOLID;
+            target := colorNode;
+        };
+        controllerColourNode.outEdges += colorEdge;
+        
+        // Create an edge from the Color node to the Controller node
+        var colorToControllerEdge := object Graph::Edge {
+            style := Graph::Style::SOLID;
+            target := controllerNode;
+        };
+        colorNode.outEdges += colorToControllerEdge;
+        
+        // Increment the index
+        index := index + 1;
+    }
 }
 
-
-
-mapping ConCL::Console::console2node() : Graph::Node {
-    label := 'console' + self.storage.toString();
+mapping ConCL::ConsolePack::consolepackname2node() : Graph::Node {
+    label := self.name;
     shape := Graph::Shape::BOX;
-    outEdges := self.displaycomponent->map display2edge(); 
 }
 
-mapping ConCL::Controller::controller2node() : Graph::Node {
-    label := 'controller' + self.color.toString(); 
-    shape := Graph::Shape::BOX;
-    outEdges := self.color->map color2edge(); 
+mapping ConCL::Console::console2display() : Graph::Node {
+
 }
 
-mapping ConCL::Game::game2node() : Graph::Node {
-    label := 'game' + self.gameName.toString(); 
-    shape := Graph::Shape::BOX;
-}
-
-mapping ConCL::DisplayComponent::display2edge() : Graph::Edge {
-    style := Graph::Style::DASHED; 
-    target := self.map display2node(); 
-}
-
-mapping ConCL::DisplayComponent::display2node() : Graph::Node {
-    label := 'display' + self.diagonalSize.toString(); 
-    shape := Graph::Shape::BOX; 
-}
-
-mapping ConCL::ControllerColor::color2edge() : Graph::Edge {
-    style := Graph::Style::SOLID; 
-    target := self.map color2node(); 
-}
-
-mapping ConCL::ControllerColor::color2node() : Graph::Node {
-    label := self.toString();
+mapping ConCL::Controller::controller2node(index: Integer) : Graph::Node {
+    label := 'controller' + index.toString();
     shape := Graph::Shape::BOX;
 }
