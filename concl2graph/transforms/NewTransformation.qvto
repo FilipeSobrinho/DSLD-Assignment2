@@ -19,6 +19,13 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
     };
     nodes += controllerColourNode;
     
+    // Create a node for the Display
+	var displayNode := object Graph::Node {
+	    label := 'Display';
+	    shape := Graph::Shape::BOX;
+	};
+	nodes += displayNode;
+    
     // Declare and initialize a variable for indexing
     var index : Integer := 1;
     
@@ -69,8 +76,15 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
         // Get the console at the current index
         var console := self.consolecomponent->at(consoleIndex);
         // Map the display component to a node and add it to the nodes
-        var displayNode := console.displaycomponent.map display2node(consoleIndex);
-        nodes += displayNode;
+        var eachDisplayNode := console.displaycomponent.map display2node(consoleIndex);
+        nodes += eachDisplayNode;
+        
+        // Create an edge from the ConsolePack node to the eachDisplayNode node
+		var displayEdge := object Graph::Edge {
+		    style := Graph::Style::SOLID;
+		    target := eachDisplayNode;
+		};
+		self.map consolepackname2node().outEdges += displayEdge;
         
         // Create a node for the display type
 		var displayTypeNode := object Graph::Node {
@@ -86,26 +100,23 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
 		};
 		nodes += resolutionNode;
 		
-		// Create an edge from the Display node to the Display Type node
+		// Create an edge from the eachDisplayNode node to the Display Type node
 		var displayTypeEdge := object Graph::Edge {
 		    style := Graph::Style::DASHED;
 		    target := displayTypeNode;
 		};
-		displayNode.outEdges += displayTypeEdge;
+		eachDisplayNode.outEdges += displayTypeEdge;
 		
-		// Create an edge from the Display node to the Resolution node
+		// Create an edge from the eachDisplayNode node to the Resolution node
 		var resolutionEdge := object Graph::Edge {
 		    style := Graph::Style::DASHED;
 		    target := resolutionNode;
 		};
-		displayNode.outEdges += resolutionEdge;
+		eachDisplayNode.outEdges += resolutionEdge;
+		
+		//========================================================================
 		        
-        // Create an edge from the ConsolePack node to the Display node
-		var displayEdge := object Graph::Edge {
-		    style := Graph::Style::SOLID;
-		    target := displayNode;
-		};
-		self.map consolepackname2node().outEdges += displayEdge;
+        
         
         // Create a node for the display diagonal size
 		var diagonalSizeNode := object Graph::Node {
@@ -114,12 +125,21 @@ mapping ConCL::ConsolePack::consolepack2graph() : Graph::Graph {
 		};
 		nodes += diagonalSizeNode;
 
-		// Create an edge from the Display node to the Diagonal Size node
+		// Create an edge from the Diagonal Size node to eachDisplayNode node
 		var diagonalSizeEdge := object Graph::Edge {
+		    style := Graph::Style::SOLID;
+		    target := eachDisplayNode;
+		};
+        diagonalSizeNode.outEdges += diagonalSizeEdge;
+        
+        
+        // Create an edge from the Display node to Diagonal Size node
+		var Display2diagonalSizeEdge := object Graph::Edge {
 		    style := Graph::Style::SOLID;
 		    target := diagonalSizeNode;
 		};
-        displayNode.outEdges += diagonalSizeEdge;
+        displayNode.outEdges += Display2diagonalSizeEdge;
+
         
         // Increment the console index
         consoleIndex := consoleIndex + 1;
